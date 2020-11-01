@@ -3,9 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <title>Weather Dashboard</title>
 </head>
+
 <body>
-    
+    <header>
+        <nav class="navbar">
+            <a class="navbar-brand">
+                <i class="fas fa-cloud-sun-rain"></i>
+                Weather Dashboard
+            </a>
+        </nav>
+    </header>
+
+    <div class="sidenav">
+    <form class="form-inline mr-auto">
+        <input class="form-control mr-sm-2" id="searchInput" type="text" placeholder="City,State" aria-label="Search">
+        <button class="btn btn-secondary btn-rounded btn-sm my-0" id="searchBtn" type="submit">Search</button>
+    </form>
+    <ul class="list-group">
+    </ul>
+</div> 
+
+<div class="main">
+    <div class="card mb-3" style="max-width: 750px;" id="currentWeather">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="http://openweathermap.org/img/wn/01d@2x.png" class="card-img" id="currentIcon" >
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h1 class="card-title"id="city">Current Weather</h1>
+              <h5 class="card-title" id="date">Current Date</h5>
+              <p class="card-text" id = "wind">Wind Speed:</p>
+              <p class="card-text" id="humidity"><small class="text-muted"></small>Humidity:</p>
+              <p class="card-text" id="tempF"><small class="text-muted"></small>Temperature (F):</p>
+              <p class="card-text" id="uvIndex"><small class="text-muted"></small>UV Index:</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <h1>5-Day Forecast</h1>
+    <div class="row row-cols-1 row-cols-md-3">
+        <div class="col mb-4">
+          <div class="card h-100" >
+            <img src="http://openweathermap.org/img/wn/10d@2x.png" class="card-img-top" id="day1">
+            <div class="card-body">
+              <h5 class="card-title">DATE</h5>
+              <p class="card-text">Max Temp(F):</p>
+              <p class="card-text">Min Temp(F):</p>
+              <p class="card-text">Humidity:</p>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-4">
+          <div class="card h-100" >
+            <img src="http://openweathermap.org/img/wn/02d@2x.png" class="card-img-top" id="day2">
+            <div class="card-body">
+              <h5 class="card-title">DATE</h5>
+              <p class="card-text">Max Temp(F):</p>
+              <p class="card-text">Min Temp(F):</p>
+              <p class="card-text">Humidity:</p>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-4">
+          <div class="card h-100" >
+            <img src="http://openweathermap.org/img/wn/11d@2x.png" class="card-img-top" id="day3">
+            <div class="card-body">
+              <h5 class="card-title">DATE</h5>
+              <p class="card-text">Max Temp(F):</p>
+              <p class="card-text">Min Temp(F):</p>
+              <p class="card-text">Humidity:</p>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-4">
+          <div class="card h-100" >
+            <img src="http://openweathermap.org/img/wn/13d@2x.png" class="card-img-top" id="day4">
+            <div class="card-body">
+              <h5 class="card-title">DATE</h5>
+              <p class="card-text">Max Temp(F):</p>
+              <p class="card-text">Min Temp(F):</p>
+              <p class="card-text">Humidity:</p>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-4">
+          <div class="card h-100" >
+            <img src="http://openweathermap.org/img/wn/50d@2x.png" class="card-img-top" id="day5">
+            <div class="card-body">
+              <h5 class="card-title">DATE</h5>
+              <p class="card-text">Max Temp(F):</p>
+              <p class="card-text">Min Temp(F):</p>
+              <p class="card-text">Humidity:</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!--Load scripts here-->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="script.js"></script>
+
 </body>
 </html>
