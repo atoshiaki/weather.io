@@ -1,0 +1,50 @@
+.navbar{
+    background-color: #383f41;
+    color:  #ffffff;
+  }
+  .sidenav {
+      height: 100%;
+      width:auto;
+      position: fixed;
+  
+      left: 0;
+      overflow-x: hidden;
+      padding-top: 20px;
+    }
+    .sidenav a {
+      padding: 6px 8px 6px 16px;
+      text-decoration: none;
+      font-size: 25px;
+      display: block;
+    }
+    .sidenav a:hover {
+      color: #2e96a9;
+    }
+
+    .main {
+      margin-left: 300px;
+      padding:10px;
+    }
+    @media screen and (max-height: 450px) {
+      .sidenav {padding-top: 15px;}
+      .sidenav a {font-size: 18px;}
+    }
+    .list-group{
+        padding: 10px;
+    }
+    .list-group-item{
+      background-color:  #030304;
+    }
+    .form-inline{
+        padding: 10px;
+    }
+    .h-100{
+      background-color:#4bcdd1;
+    }
+    .btn-secondary{
+      background-color: #58b4c0;
+    }
+    .mb-3{
+      background-color: #0a97af;
+  
+    }

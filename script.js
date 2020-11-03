@@ -32,7 +32,7 @@ $$(document).ready(function(){
     });
   }
   function ajaxCall2(loc,lat,lng){
-    var APIKey = "d76a54ec670a9ff8425f5e3466754232";
+    var APIKey = "d97ff29f74f4ffb3674d8de47004be2a";
     var queryURL = "https://api.openweathermap.org/data/2.5/onecall?"+"lat="+ lat + "&lon="+ lng +
     "&exclude={minute,hourly}&appid="+APIKey;
     $.ajax({
