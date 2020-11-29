@@ -12,13 +12,13 @@ function setQuery(evt) {
 }
 
 function getForecast (query) {
-  var url = api.baseurl + "forecast?q=" + query + "&units=imperial&APPID=" + api.key;
+  var url = api.url + "forecast?q=" + query + "&units=imperial&APPID=" + api.key;
   fetch(url).then(response => response.json()).then(data=>processForecast(data));
 }
 
 
 function getUvi (lat, lon) {
-  var url = api.baseurl + "uvi/forecast?lat=" + lat + "&lon=" + lon + "&cont=40&appid=" + api.key;
+  var url = api.url + "uvi/forecast?lat=" + lat + "&lon=" + lon + "&cont=40&appid=" + api.key;
   fetch(url).then(response => response.json()).then(data=>processForecast(data));
 }
 
@@ -27,6 +27,7 @@ function processForecast (forecast) {
   var coord = forecast.city.coord;
   var city = forecast.city.name;
   var list = forecast.list;
+  $('.location .city [name="name"]').html(city)
   for (var i = 0; i < list.length; i += 8) {
     var record = list[i];
     var date = record.dt_txt.substring(0, record.dt_txt.indexOf(' '));
@@ -34,19 +35,19 @@ function processForecast (forecast) {
     var humidity = record.main.humidity;
     var icon = record.weather[0].icon;
     var speed = record.wind.speed;
-    
-    $('.' + i + 'record .[name=" "]').html();
+
+    $('.' + i + 'record .date [name="date"]').html(date);
     $('.' + i + 'record .temp [name="temp"]').html(temp);
     $('.' + i + 'record .weather [name="icon"]').html(icon);
     $('.' + i + 'record .humidity [name="humidity"]').html(humidity);
     $('.' + i + 'record .wind [name="wind"]').html(speed);
-    
+    console.log(forecast);
   }
-
-  TO DO GET UVI
+}
+// TO DO GET UVI
 //  let city = document.querySelector(".location .city");
 // city.innerText = `${forecast.name}, ${forecast.sys.country}`;
-  console.log(forecast);
+  
 //  let now = new Date();
 //  let date = document.querySelector(".location .date");
 //  date.innerText = dateBuilder(now);
@@ -59,13 +60,13 @@ function processForecast (forecast) {
 
 //  let hilow = document.querySelector(".hi-low");
 //  hilow.innerText = `${Math.round(forecast.main.temp_min)}°c / ${Math.round(forecast.main.temp_max)}°c`;
-}
-function dateBuilder (d) {
-  let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  let day = days[d.getDay()];
-  let date = d.getDate();
-  let month = months[d.getMonth()];
-  let year = d.getFullYear();
-  return `${day} ${date} ${month} ${year}`;
-}
+//}
+//function dateBuilder (d) {
+  //let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  //let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  //let day = days[d.getDay()];
+  //let date = d.getDate();
+  //let month = months[d.getMonth()];
+  //let year = d.getFullYear();
+  //return `${day} ${date} ${month} ${year}`;
+//}
