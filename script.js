@@ -12,7 +12,7 @@ function setQuery(evt) {
 }
 
 function getForecast (query) {
-  var url = api.baseurl + "forecast?q=" + query + "&units=metric&APPID=" + api.key;
+  var url = api.baseurl + "forecast?q=" + query + "&units=imperial&APPID=" + api.key;
   fetch(url).then(response => response.json()).then(data=>processForecast(data));
 }
 
@@ -29,11 +29,18 @@ function processForecast (forecast) {
   var list = forecast.list;
   for (var i = 0; i < list.length; i += 8) {
     var record = list[i];
-    var date = record.dt_txt;
+    var date = record.dt_txt.substring(0, record.dt_txt.indexOf(' '));
     var temp = record.main.temp;
     var humidity = record.main.humidity;
     var icon = record.weather[0].icon;
     var speed = record.wind.speed;
+    
+    $('.' + i + 'record .[name=" "]').html();
+    $('.' + i + 'record .temp [name="temp"]').html(temp);
+    $('.' + i + 'record .weather [name="icon"]').html(icon);
+    $('.' + i + 'record .humidity [name="humidity"]').html(humidity);
+    $('.' + i + 'record .wind [name="wind"]').html(speed);
+    
   }
 
   TO DO GET UVI
