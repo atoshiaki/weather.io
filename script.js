@@ -11,22 +11,23 @@ function setQuery(evt) {
   }
 }
 
+//Uses API to get current and future weather info
 function getForecast (query) {
   var url = api.url + "forecast?q=" + query + "&units=imperial&APPID=" + api.key;
-  fetch(url).then(response => response.json()).then(data=>processForecast(data));
+  fetch(url)
+    .then(response => response.json())
+    .then(data=>processForecast(data));
 }
-
-
+//Uses API to get Uvi information using the info from the forcast response
 function getUvi (lat, lon) {
   var url = api.url + "uvi/forecast?lat=" + lat + "&lon=" + lon + "&cont=40&appid=" + api.key;
   fetch(url).then(response => response.json()).then(data=>processForecast(data));
 }
 
-
 function processForecast (forecast) {
-  var coord = forecast.city.coord;
   var city = forecast.city.name;
   var list = forecast.list;
+  //change name city off search
   $('.location .city [name="name"]').html(city)
   for (var i = 0; i < list.length; i += 8) {
     var record = list[i];
@@ -41,32 +42,7 @@ function processForecast (forecast) {
     $('.' + i + 'record .weather [name="icon"]').html(icon);
     $('.' + i + 'record .humidity [name="humidity"]').html(humidity);
     $('.' + i + 'record .wind [name="wind"]').html(speed);
+    
     console.log(forecast);
   }
 }
-// TO DO GET UVI
-//  let city = document.querySelector(".location .city");
-// city.innerText = `${forecast.name}, ${forecast.sys.country}`;
-  
-//  let now = new Date();
-//  let date = document.querySelector(".location .date");
-//  date.innerText = dateBuilder(now);
-
-//  let temp = document.querySelector(".current .temp");
-//  temp.innerHTML = `${Math.round(forecast.main.temp)}<span>°c</span>`;
-
-//  let weather_el = document.querySelector(".current .forecast");
-//  weather_el.innerText = forecast.forecast[0].main;
-
-//  let hilow = document.querySelector(".hi-low");
-//  hilow.innerText = `${Math.round(forecast.main.temp_min)}°c / ${Math.round(forecast.main.temp_max)}°c`;
-//}
-//function dateBuilder (d) {
-  //let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  //let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  //let day = days[d.getDay()];
-  //let date = d.getDate();
-  //let month = months[d.getMonth()];
-  //let year = d.getFullYear();
-  //return `${day} ${date} ${month} ${year}`;
-//}

@@ -12,7 +12,17 @@ body {
   display: table-row;
   position: relative;
 }
-
+.container-search {
+  font-family: Arial, Helvetica, sans-serif;
+  background-size: cover;
+  background-position: top center;
+  flex: 1 1 100%;
+  padding: 25px 25px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 .container1 {
   font-family: Arial, Helvetica, sans-serif;
   background-image: url("images/beach.jpg");
@@ -121,9 +131,9 @@ span {
   font-weight: 500;
   text-shadow: 0px 4px rgba(0, 0, 0, 0.4);
 }
-.hi-low {
+.uvi {
   color: #FFF;
   font-size: 24px;
   font-weight: 500;
-  text-shadow: 0px 4px rgba(0, 0, 0, 0.4);
+  text-shadow: 0px 4px rgba(0, 0, 0, 0.4)
 }
